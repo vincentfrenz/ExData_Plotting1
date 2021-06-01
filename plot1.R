@@ -13,6 +13,8 @@ TwoDaysData <- filter(myData, c(Date == "1/2/2007" | Date == "2/2/2007"))
 
 TwoDaysData$Date = as.Date(TwoDaysData$Date, "%d/%m/%Y")
 
+TwoDaysDataWeekdays <- weekdays(TwoDaysData$Date)
+
 class(myData$Date)
 ?filter
 
