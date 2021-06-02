@@ -16,13 +16,14 @@ TwoDaysData <- filter(myData, c(Date == "1/2/2007" | Date == "2/2/2007"))
 ## format date and time
 TwoDaysData$Date <- as.Date(TwoDaysData$Date, "%d/%m/%Y")
 
-## store as weekdays
-TwoDaysData$Weekdays <- weekdays(TwoDaysData$Date) 
+## store DateTime
+TwoDaysData$DateTime <- paste(TwoDaysData$Date, TwoDaysData$Time)
+TwoDaysData$DateTime <- as.POSIXct(TwoDaysData$DateTime)
 
-## Convert time to hours, minutes, seconds
-TwoDaysData$Time <- hms(TwoDaysData$Time)
 
-plot(TwoDaysData$Time, TwoDaysData$Global_active_power , ylab = "Global Active Power (kilowatts)", type = "l")
+## plot
+plot(TwoDaysData$DateTime, TwoDaysData$Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type = "l")
 
-#dev.copy(png, file = "plot2.png")
-#dev.off()
+## png
+dev.copy(png, file = "plot2.png")
+dev.off()
