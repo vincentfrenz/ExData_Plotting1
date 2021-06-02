@@ -14,5 +14,5 @@ TwoDaysData <- filter(myData, c(Date == "1/2/2007" | Date == "2/2/2007"))
 
 hist(TwoDaysData$Global_active_power, xlab = "Global Active Power (kilowatts)", col = "red", main = "Global Active Power")
 
-dev.copy(png, file = "plot 1.png")
+dev.copy(png, file = "plot1.png")
 dev.off()
